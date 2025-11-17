@@ -26,7 +26,7 @@ keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "[Q]uit" })
 keymap.set("n", "<leader>Q", "<cmd>q!<CR>", { desc = "Force [Q]uit" })
 keymap.set("n", "<leader>x", "<cmd>x<CR>", { desc = "E[X]it" })
 keymap.set("n", "<leader>xa", "<cmd>xall<CR>", { desc = "E[X]it [A]ll" })
-keymap.set("n", "<leader>qa", "<cmd>qall<CR>", { desc = "[Q]uit [A]ll" })
+keymap.set("n", "<leader>qq", "<cmd>qall<CR>", { desc = "[Q]uit [A]ll" })
 
 -- Window navigation
 keymap.set("n", "<C-h>", "<C-w>h")
