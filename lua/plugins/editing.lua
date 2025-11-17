@@ -49,30 +49,22 @@ return {
 		},
 		opts = {
 			notify_on_error = false,
-			format_on_save = function(bufnr)
-				-- Disable "format_on_save lsp_fallback" for languages that don't
-				-- have a well standardized coding style. You can add additional
-				-- languages here or re-enable it for the disabled ones.
-				local disable_filetypes = { c = true, cpp = true }
-				local lsp_format_opt
-				if disable_filetypes[vim.bo[bufnr].filetype] then
-					lsp_format_opt = "never"
-				else
-					lsp_format_opt = "fallback"
-				end
-				return {
-					timeout_ms = 500,
-					lsp_format = lsp_format_opt,
-				}
-			end,
 			formatters_by_ft = {
+				c = { "clang_format" },
+				cpp = { "clang_format" },
+				objc = { "clang_format" },
+				objcpp = { "clang_format" },
 				lua = { "stylua" },
-				-- TODO: Add clang formatter
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use 'stop_after_first' to run the first available formatter from the list
-				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+			},
+
+			formatters = {
+				clang_format = {
+					prepend_args = { "--style=file" },
+				},
+			},
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_fallback = true,
 			},
 		},
 	},
@@ -289,7 +281,7 @@ return {
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 
 			-- Useful for getting pretty icons, but requires a Nerd Font.
-			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -376,24 +368,40 @@ return {
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-		local harpoon = require("harpoon")
+			local harpoon = require("harpoon")
 
-		-- REQUIRED: initialize Harpoon
-		harpoon:setup()
+			-- REQUIRED: initialize Harpoon
+			harpoon:setup()
 
-		-- Example keymaps
-		vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon file" })
-		vim.keymap.set("n", "<leader>l", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon quick menu" })
+			-- Example keymaps
+			vim.keymap.set("n", "<leader>a", function()
+				harpoon:list():add()
+			end, { desc = "Harpoon file" })
+			vim.keymap.set("n", "<leader>l", function()
+				harpoon.ui:toggle_quick_menu(harpoon:list())
+			end, { desc = "Harpoon quick menu" })
 
-		-- Navigate between files
-		vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
-		vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
-		vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
-		vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+			-- Navigate between files
+			vim.keymap.set("n", "<leader>1", function()
+				harpoon:list():select(1)
+			end)
+			vim.keymap.set("n", "<leader>2", function()
+				harpoon:list():select(2)
+			end)
+			vim.keymap.set("n", "<leader>3", function()
+				harpoon:list():select(3)
+			end)
+			vim.keymap.set("n", "<leader>4", function()
+				harpoon:list():select(4)
+			end)
 
-		-- Toggle previous & next buffers stored within Harpoon list
-		vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end)
-		vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end)
+			-- Toggle previous & next buffers stored within Harpoon list
+			vim.keymap.set("n", "<C-p>", function()
+				harpoon:list():prev()
+			end)
+			vim.keymap.set("n", "<C-n>", function()
+				harpoon:list():next()
+			end)
 		end,
-	}
+	},
 }
