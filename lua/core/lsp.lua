@@ -12,7 +12,7 @@ if vim.g.have_nerd_font then
 end
 
 -- formatting
-vim.g.autoFormat = true;
+vim.g.autoFormat = false;
 function ToggleFormatOnSave()
     vim.g.autoFormat = not vim.g.autoFormat
     print("Format on save: " .. (vim.g.autoFormat and "enable" or "disabled"))
@@ -34,6 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
         -- KEYMAPS
+        vim.keymap.set('n', 'grh', '<cmd>LspClangdSwitchSourceHeader<CR>')
         vim.keymap.set('n', 'ld', vim.lsp.tagfunc)
         vim.keymap.set('n', 'lca', vim.lsp.buf.code_action)
         vim.keymap.set('n', 'li', vim.lsp.buf.implementation, { desc = "implementation" })

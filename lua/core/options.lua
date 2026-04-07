@@ -3,7 +3,7 @@ local opt = vim.opt
 --tabs & indentation
 opt.tabstop = 4
 opt.shiftwidth = 4
-opt.expandtab = true
+opt.expandtab = false
 opt.autoindent = true
 
 -- line wrapping
