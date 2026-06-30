@@ -9,12 +9,12 @@ return {
         },
         spec = {
             -- TODO:  Configure
-            -- { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
+           -- { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
             -- { "<leader>d", group = "[D]ocument" },
-            { "<leader>s",  group = "[S]earch" },
+            { "<leader>s", group = "[S]earch" },
             { "<leader>sg", group = "[Git]" },
-            { "<leader>t",  group = "[T]oggle" },
-            { "l",          group = "[L]SP" },
+            { "<leader>t", group = "[T]oggle" },
+            { "<leader>l", group = "[L]SP" },
         },
     },
 }

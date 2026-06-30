@@ -19,7 +19,7 @@ function ToggleFormatOnSave()
 end
 
 vim.api.nvim_create_user_command("ToggleFormat", ToggleFormatOnSave, {})
-vim.keymap.set('n', '<leader>tf', ToggleFormatOnSave)
+vim.keymap.set('n', '<leader>tf', ToggleFormatOnSave, { desc = "format on save"})
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('lsp', {}),
@@ -35,14 +35,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- KEYMAPS
         vim.keymap.set('n', 'grh', '<cmd>LspClangdSwitchSourceHeader<CR>')
-        vim.keymap.set('n', 'ld', vim.lsp.tagfunc)
-        vim.keymap.set('n', 'lca', vim.lsp.buf.code_action)
-        vim.keymap.set('n', 'li', vim.lsp.buf.implementation, { desc = "implementation" })
-        vim.keymap.set('n', 'ln', vim.lsp.buf.rename)
-        vim.keymap.set('n', 'lr', vim.lsp.buf.references)
-        vim.keymap.set('n', 'lt', vim.lsp.buf.type_definition)
-        vim.keymap.set('n', 'ls', vim.lsp.buf.document_symbol)
-        vim.keymap.set('n', 'lh', vim.lsp.buf.document_highlight)
+        vim.keymap.set('n', '<leader>ld', vim.lsp.tagfunc)
+        vim.keymap.set('n', '<leader>lca', vim.lsp.buf.code_action)
+        vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation, { desc = "implementation" })
+        vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename)
+        vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references)
+        vim.keymap.set('n', '<leader>lt', vim.lsp.buf.type_definition)
+        vim.keymap.set('n', '<leader>ls', vim.lsp.buf.document_symbol)
+        vim.keymap.set('n', '<leader>lh', vim.lsp.buf.document_highlight)
 
         -- FORMAT
         -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
