@@ -10,11 +10,11 @@ keymap.set("n", "<ESC>", "<cmd> noh <CR>") -- ESC to remove highlightning
 keymap.set("n", "n", "nzz")                -- Center search after each n
 
 -- Window
-keymap.set("n", "<leader>h", "<C-w>v", { desc = "Split window [H]orisontally" }) -- Open window horisontally
-keymap.set("n", "<leader>v", "<C-w>s", { desc = "Split window [V]ertically" })   -- Open window vertically
 keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "[Q]uit" })
 keymap.set("n", "<leader>Q", "<cmd>q!<CR>", { desc = "Force [Q]uit" })
 keymap.set("n", "<leader>qq", "<cmd>qall<CR>", { desc = "[Q]uit [A]ll" })
+
+keymap.set("n", "<C-w>z", "<C-w>|", { desc = "Zoom window" })
 
 -- Window navigation
 keymap.set("n", "<C-h>", "<C-w>h")
@@ -23,10 +23,10 @@ keymap.set("n", "<C-k>", "<C-w>k")
 keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Colemak support
-keymap.set("n", "<M-Left>", "<C-w>h")
-keymap.set("n", "<M-Down>", "<C-w>j")
-keymap.set("n", "<M-Up>", "<C-w>k")
-keymap.set("n", "<M-Right>", "<C-w>l")
+keymap.set("n", "<C-Left>", "<C-w>h")
+keymap.set("n", "<C-Down>", "<C-w>j")
+keymap.set("n", "<C-Up>", "<C-w>k")
+keymap.set("n", "<C-Right>", "<C-w>l")
 
 -- EDITING
 keymap.set("v", "<", "<gv")
