@@ -14,7 +14,7 @@ keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "[Q]uit" })
 keymap.set("n", "<leader>Q", "<cmd>q!<CR>", { desc = "Force [Q]uit" })
 keymap.set("n", "<leader>qq", "<cmd>qall<CR>", { desc = "[Q]uit [A]ll" })
 
-keymap.set("n", "<C-w>z", "<C-w>|", { desc = "Zoom window" })
+keymap.set("n", "<C-w>z", "<C-w>| <C-w>_", { desc = "Zoom window" })
 
 -- Window navigation
 keymap.set("n", "<C-h>", "<C-w>h")
