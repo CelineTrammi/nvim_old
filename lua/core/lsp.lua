@@ -1,5 +1,5 @@
 vim.lsp.enable("clangd")
-vim.lsp.enable("lua_ls")
+-- vim.lsp.enable("lua_ls")
 
 -- Change diagnostic symbols in the sign column (gutter)
 if vim.g.have_nerd_font then
@@ -35,14 +35,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- KEYMAPS
         vim.keymap.set('n', 'grh', '<cmd>LspClangdSwitchSourceHeader<CR>')
-        vim.keymap.set('n', '<leader>ld', vim.lsp.tagfunc)
-        vim.keymap.set('n', '<leader>lca', vim.lsp.buf.code_action)
+        vim.keymap.set('n', '<leader>ld', vim.lsp.tagfunc, {desc="tagfunc"})
+        vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, {desc = "code action"})
         vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation, { desc = "implementation" })
-        vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename)
-        vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references)
-        vim.keymap.set('n', '<leader>lt', vim.lsp.buf.type_definition)
-        vim.keymap.set('n', '<leader>ls', vim.lsp.buf.document_symbol)
-        vim.keymap.set('n', '<leader>lh', vim.lsp.buf.document_highlight)
+        vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, { desc = "re[n]ame" })
+        vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references, { desc = "[r]eferences" })
+        vim.keymap.set('n', '<leader>lt', vim.lsp.buf.type_definition, { desc = "[t]ype" })
+        vim.keymap.set('n', '<leader>ls', vim.lsp.buf.document_symbol, { desc = "[s]ymbol" })
+        vim.keymap.set('n', '<leader>lh', vim.lsp.buf.document_highlight, { desc = "[h]ighligth" })
 
         -- FORMAT
         -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
